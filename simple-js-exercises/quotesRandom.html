@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Quotes</title>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      margin: 0;
+      align-items: center;
+      justify-content: center;
+      background: coral;
+      color: #333;
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: capitalize;
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem;
+      border-radius: 5px;
+      background-color: #c5c5c5;
+      flex: 0 0 80%;
+    }
+
+    #quoteBtn {
+      border: none;
+      color: #fff;
+      background: coral;
+      padding: .25rem .5rem;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 1.3rem;
+    }
+
+    #quoteBtn:hover {
+      color: black;
+    }
+
+    blockquote {
+      background: #f9f9f9;
+      border-left: 10px solid #fcbddf;
+      margin: 1.5rem;
+      padding: .5rem;
+    }
+
+    #quoteAuthor {
+      color: #161615;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Quotes by famous people</h2>
+    <button id="quoteBtn">Click to display Quote</button>
+    <blockquote>
+      <h2 id="quote">quote</h2>
+    </blockquote>
+    <h3 id="quoteAuthor">author of the quote</h3>
+  </div>
+
+  <script>
+    const quotes = [
+      {
+        name: 'John F.Kennedy',
+        quote: 'Those who dare to fail miserably can achieve greatly'
+      },
+      {
+        name: 'Leo Tolstoy',
+        quote: "If you want to be happy, be."
+      },
+      {
+        name: 'Author 1',
+        quote: 'quote of the author'
+      },
+      {
+        name: 'Author 2',
+        quote: 'quote 2'
+      },
+      {
+        name: 'Author 3',
+        quote: 'quote 3'
+      }
+    ];
+
+    // Select the tags
+    const quoteBtn = document.querySelector('#quoteBtn');
+    const quoteAuthor = document.querySelector('#quoteAuthor');
+    const quote = document.querySelector('#quote');
+
+    quoteBtn.addEventListener('click', displayQuote);
+
+    function displayQuote() {
+      let number = Math.floor( Math.random() * quotes.length);
+      // quoteAuthor.innerHTML = quote[number].name;
+      console.log(`INDEX: ${number} ${quotes[number].name} --${quotes[number].quote} `);
+
+      quoteAuthor.innerText = quotes[number].name;
+      quote.innerText = quotes[number].quote;
+    }
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>
