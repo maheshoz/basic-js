@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>input message</title>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: coral;
+      color: #333;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 400;
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem;
+      border-radius: 7px;
+      background: #fff;
+      flex: 0 0 80%;
+    }
+
+    button {
+      display: block;
+      font-size: 2rem;
+      margin: 1rem auto;
+      padding: .5rem 1rem;
+      color: #fff;
+      background-color: #6cc3d8;
+      border: none;
+    }
+
+    button:hover {
+      opacity: .8;
+      cursor: pointer;
+    }
+
+    input[type=text] {
+      padding: .5rem;
+      margin: 1rem;
+      border-radius: 5px;
+      font-size: 1.5rem;
+      border: 3px solid #88d5e0;
+      outline: none;
+    }
+
+    input[type=text]:focus {
+      box-shadow: 0 0 10px #88d5e9;
+    }
+
+    #messageOut {
+      margin: .5rem 0;
+      color: #88d5e9;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Message you would like to send</h1>
+    <input type="text" name="messageIn" id="messageIn">
+    <button type="button" id="sendBtn">Press to send</button>
+    <h1>last message delivered</h1>
+    <h1 id="messageOut"></h1>
+  </div>
+  <script>
+    const sendBtn = document.querySelector('#sendBtn');
+    const messageIn = document.querySelector('#messageIn');
+    const messageOut = document.querySelector('#messageOut');
+
+    sendBtn.addEventListener('click', sendMessage);
+
+    function sendMessage() {
+      let content = messageIn.value;
+      // console.log(content);
+      if (content === '') {
+        alert('Please enter valid value, Current value is Empty');
+      } else {
+        messageOut.innerText = content;
+        messageIn.value = '';
+      }
+    }
+  </script>
+</body>
+
+</html>
