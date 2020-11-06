@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter inc dec</title>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('img/name.png') center/cover no-repeat;
+      /* background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat; */
+      background-color: #eee;
+      color: black;
+      font-family: Arial, sans-serif;
+    }
+
+    .counter-box {
+      flex: 0 0 70%;
+      text-align: center;
+      border: 3px solid gray;
+      padding: 1rem;
+      font-weight: bold;
+      box-shadow: 3px 3px 43px -8px #0000004f;
+      border-radius: 15px;
+      background-color: #fff;
+    }
+
+    .counter {
+      font-size: 5rem;
+    }
+
+    .btn {
+      background: #fff;
+      border-radius: 8px;
+      padding: .5rem;
+      margin: .5rem .25rem;
+      border: 3px solid gray;
+      outline: none;
+      font-size: 1.8rem;
+    }
+
+    .btn:hover {
+      background-color: #282a28;
+      color: white;
+    }
+
+    .btn:active {
+      box-shadow: 2px 3px 10px gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="counter-box">
+    <h1>Counter</h1>
+    <h1 class="counter">0</h1>
+    <div class="btns">
+      <button type="button" class="btn" id="lowerCountBtn">Lower Count</button>
+      <button type="button" class="btn" id="addCountBtn">Add Count</button>
+    </div>
+  </div>
+
+  <script>
+    let counter = document.querySelector('.counter');
+    const addCount = document.querySelector('#addCountBtn');
+    const lowerCount = document.querySelector('#lowerCountBtn');
+
+    let count = 0;
+    addCount.addEventListener('click', incrementCounter);
+    lowerCount.addEventListener('click', decrementCounter);
+
+    function incrementCounter() {
+      count++;
+      counter.innerText = count;
+      if (counter.innerText > '0') {
+        counter.style.color = 'green';
+      }
+      else if (counter.innerText === '0') {
+        counter.style.color = 'black';
+      }
+
+      // https://developer.mozilla.org/en-US/docs/Web/API/Element/animate
+      counter.animate(
+        [
+          { opacity: '0.2' }, 
+          { opacity: '1.0' }
+        ],
+        { duration: 1000, fill: 'forwards' });
+    }
+
+    function decrementCounter() {
+      count--;
+      counter.innerText = count;
+      if (counter.innerText < '0') {
+        counter.style.color = 'red';
+      } else if (counter.innerHTML === '0') {
+        counter.style.color = 'gray';
+      }
+
+      counter.animate(
+        [
+          { opacity: '0.2' }, 
+          { opacity: '1.0' }
+        ],
+        { duration: 1000, fill: 'forwards' });
+    }
+
+
+
+
+
+  </script>
+</body>
+
+</html>
