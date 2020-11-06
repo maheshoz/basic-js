@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Backgound color</title>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn {
+            border: 2px solid gray;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            outline: none;
+            text-transform: capitalize;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            font-size: 1rem;
+            transition: all .3s;
+        }
+
+        .btn:hover {
+            background: rgb(0, 0, 0);
+            box-shadow: 3px 4px 10px gray;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn">Click to cange Color</button>
+    <script>
+        const button = document.querySelector('.btn');
+        const body = document.querySelector('body');
+
+        const colors = ['#eee', 'yellow', 'coral', 'tomato', '#333']
+
+        button.addEventListener('click', changeColor);
+
+        function changeColor() {
+            // body.style.backgroundColor = colors[2];
+            let randomIndex = Math.floor(Math.random() * colors.length);
+            console.log(colors[randomIndex]);
+            body.style.backgroundColor = colors[randomIndex];
+        }
+    </script>
+</body>
+
+</html>
