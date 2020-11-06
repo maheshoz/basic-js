@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generat HEX Color</title>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .hexColor {
+      text-transform: capitalize;
+    }
+
+    .hex {
+      font-size: 3rem;
+    }
+
+    .hexBtn {
+      border: 2px solid gray;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      outline: none;
+      text-transform: capitalize;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      font-size: 1rem;
+      transition: all .3s;
+    }
+
+    .hexBtn:hover {
+      background: rgb(0, 0, 0);
+      box-shadow: 3px 4px 10px gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="hexColor">Background Hex Color code is : <span class="hex"></span></h2>
+    <button class="hexBtn">Click to change backgound color</button>
+  </div>
+
+  <script>
+    const hexNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+    const hexBtn = document.querySelector('.hexBtn');
+    const body = document.querySelector('body');
+    const hex = document.querySelector('.hex');
+
+    hexBtn.addEventListener('click', getHex);
+
+    function getHex() {
+      let hexColor = '#';
+
+      for (let i = 0; i < 6; i++) {
+        let random = Math.floor(Math.random() * hexNumbers.length);
+        // console.log(random)
+        hexColor += hexNumbers[random];
+        // console.log(hexColor);
+      }
+      body.style.backgroundColor = hexColor
+      hex.innerHTML = hexColor;
+
+    }
+  </script>
+</body>
+
+</html>
